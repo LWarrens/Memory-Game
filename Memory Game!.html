@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!-- saved from url=(0084)http://storage.googleapis.com/catslibrary/vocabulary/children/sign/memory/sample.htm -->
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- js -->
+    <script language="JavaScript" type="text/javascript" src="./jquery.js"></script>
+    <script src="./classList.min.js"></script>
+    <script src="./sample.js"></script>
+    <script src="./showword.js"></script>
+
+    <!-- meta -->
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="A memory game, built for fun with HTML, CSS, and JavaScript.">
+    <meta name="author" content="Nick Salloum">
+
+    <!-- title -->
+    <title>Memory Game!</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css">
+    <link rel="stylesheet" href="./memory.css">
+
+    <!-- og -->
+    <meta property="og:title" content="Memory Game!">
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <div class="header clearfix">
+            <h1 class="header__title"><font size="6"><p align="center" id="word">animals-forest </p>  </font> </h1>
+
+            <div align="center"><font size="14">
+	    <p align="center" id="word"> </p>  </font>
+            </div>
+
+        </div>
+        <!-- /.header -->
+
+    </div>
+    <!-- /.header -->
+
+    <div class="content">
+        <div class="container">
+            <div id="my-memory-game">
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+
+    <!-- start memory! -->
+    <script>
+        (function() {
+            var myMem = new Memory({
+                wrapperID: "my-memory-game",
+                cards: [{
+                    id: 1,
+                    img: "../img/sample/1.jpg"
+                }, {
+                    id: 2,
+                    img: "../img/sample/2.jpg"
+                }, {
+                    id: 3,
+                    img: "../img/sample/3.jpg"
+                }, {
+                    id: 4,
+                    img: "../img/sample/4.jpg"
+                }, {
+                    id: 5,
+                    img: "../img/sample/5.jpg"
+                }, {
+                    id: 6,
+                    img: "../img/sample/6.jpg"
+                }, {
+                    id: 7,
+                    img: "../img/sample/7.jpg"
+                }, {
+                    id: 8,
+                    img: "../img/sample/8.jpg"
+                }, {
+                    id: 9,
+                    img: "../img/sample/9.jpg"
+                }, {
+                    id: 10,
+                    img: "../img/sample/10.jpg"
+                }, {
+                    id: 11,
+                    img: "../img/sample/11.jpg"
+                }, {
+                    id: 12,
+                    img: "../img/sample/12.jpg"
+                }, {
+                    id: 13,
+                    img: "../img/sample/13.jpg"
+                }, {
+                    id: 14,
+                    img: "../img/sample/14.jpg"
+                }, {
+                    id: 15,
+                    img: "../img/sample/15.jpg"
+                }, {
+                    id: 16,
+                    img: "../img/sample/16.jpg"
+                }],
+                onGameStart: function() {
+                    return false;
+                },
+                onGameEnd: function() {
+                    return false;
+                }
+            });
+        })();
+    </script>
+
+    <div id="fb-root"></div>
+
+    <div align="center"><img src="./credit memory.png" width="400" height="100">
+    </div>
+
+</body>
+
+</html>
