@@ -13,21 +13,21 @@
  function cardTurn() {
 	var audio = new Audio('../sound/chime-01.mp3');
 audio.play();
-	
+
 	 };
-	 
+
 function cardMatch() {
 	var audio = new Audio('../sound/magic wand.mp3');
 audio.play();
-	
+
 	 };
-	 
+
  function endRound() {
 	var audio = new Audio('../sound/24-game-over.mp3');
 audio.play();
-	
+
 	 };
-	 
+
 (function( window ) {
 
   'use strict';
@@ -38,7 +38,7 @@ audio.play();
    */
 
   function extend( a, b ) {
-    for( var key in b ) { 
+    for( var key in b ) {
       if( b.hasOwnProperty( key ) ) {
         a[key] = b[key];
       }
@@ -83,67 +83,83 @@ audio.play();
     cards : [
       {
         id : 1,
-        img: "../img/animals-forest/1.jpg"
+        img: "../img/animals-forest/1.jpg",
+        txt: "kangaroo"
       },
       {
         id : 2,
-        img: "../img/animals-forest/2.jpg"
+        img: "../img/animals-forest/2.jpg",
+        txt: "kangaroo"
       },
       {
         id : 3,
-        img: "../img/animals-forest/3.jpg"
+        img: "../img/animals-forest/3.jpg",
+        txt: "kangaroo"
       },
       {
         id : 4,
-        img: "../img/animals-forest/4.jpg"
+        img: "../img/animals-forest/4.jpg",
+        txt: "kangaroo"
       },
       {
         id : 5,
-        img: "../img/animals-forest/5.jpg"
+        img: "../img/animals-forest/5.jpg",
+        txt: "kangaroo"
       },
       {
         id : 6,
-        img: "../img/animals-forest/6.jpg"
+        img: "../img/animals-forest/6.jpg",
+        txt: "kangaroo"
       },
       {
         id : 7,
-        img: "../img/animals-forest/7.jpg"
+        img: "../img/animals-forest/7.jpg",
+        txt: "kangaroo"
       },
       {
         id : 8,
-        img: "../img/animals-forest/8.jpg"
+        img: "../img/animals-forest/8.jpg",
+        txt: "kangaroo"
       },
       {
         id : 9,
-        img: "../img/animals-forest/9.jpg"
+        img: "../img/animals-forest/9.jpg",
+        txt: "kangaroo"
       },
       {
         id : 10,
-        img: "../img/animals-forest/10.jpg"
+        img: "../img/animals-forest/10.jpg",
+        txt: "kangaroo"
       },
       {
         id : 11,
-        img: "../img/animals-forest/11.jpg"
+        img: "../img/animals-forest/11.jpg",
+        txt: "kangaroo"
       },
       {
         id : 12,
-        img: "../img/animals-forest/12.jpg"
+        img: "../img/animals-forest/12.jpg",
+        txt: "kangaroo"
       },
       {
         id : 13,
-        img: "../img/animals-forest/13.jpg"
+        img: "../img/animals-forest/13.jpg",
+        txt: "kangaroo"
       },
       {
         id : 14,
-        img: "../img/animals-forest/14.jpg"
+        img: "../img/animals-forest/14.jpg",
+        txt: "kangaroo"
       },
       {
         id : 15,
-        img: "../img/animals-forest/15.jpg"
+        img: "../img/animals-forest/15.jpg",
+        txt: "kangaroo"
       },
       {
         id : 16,
-        img: "../img/animals-forest/16.jpg"
+        img: "../img/animals-forest/16.jpg",
+        txt: "kangaroo"
       }
     ],
     onGameStart : function() { return false; },
@@ -312,20 +328,20 @@ audio.play();
    */
 
   Memory.prototype._renderTiles = function() {
-   this.gridX = this.level * 2 + 2; 
+   this.gridX = this.level * 2 + 2;
    //if (this.level = 1) {
-	//   this.gridX= 4; 
+	//   this.gridX= 4;
 	 //  this.gridY = 2;
   // }
   // if (this.level = 2) {
-	   //this.gridX= 6; 
+	   //this.gridX= 6;
 	   //this.gridY = 2;
  //  }
   //  if (this.level = 3) {
-	//   this.gridX= 6; 
+	//   this.gridX= 6;
 //	   this.gridY = 4;
  //  }
-  
+
    this.gridY = this.gridX / 2;
     this.numTiles = this.gridX * this.gridY;
     this.halfNumTiles = this.numTiles/2;
@@ -340,9 +356,11 @@ audio.play();
       this.tilesHTML += '<div class="mg__tile mg__tile-' + n + '">\
         <div class="mg__tile--inner" data-id="' + this.newCards[i]["id"] + '">\
         <span class="mg__tile--outside"></span>\
-        <span class="mg__tile--inside"><img src="' + this.newCards[i]["img"] + '"></span>\
+        <span class="mg__tile--inside">' + "test"+ '</span>\
         </div>\
         </div>';
+//+ this.newCards[i]["img"]
+        console.log(this.newCards[i]["txt"]);
     }
     this.gameContents.innerHTML = this.tilesHTML;
     this.gameState = 2;
@@ -372,7 +390,7 @@ audio.play();
    * This function takes care of the "events", which is basically the clicking
    * of tiles. Tiles need to be checked if flipped or not, flipped if possible,
    * and if zero, one, or two cards are flipped. When two cards are flipped, we
-   * have to check for matches and mismatches. The _gameCardsMatch and 
+   * have to check for matches and mismatches. The _gameCardsMatch and
    * _gameCardsMismatch functions perform two separate sets of functions, and are
    * thus separated below.
    */
@@ -393,113 +411,113 @@ audio.play();
 		  if (self.card1id == 1) {
 			var currentWord = "bear"
 		 localStorage.setItem('currentWord',currentWord);
-		showVideos ()
-		  
+		showWord ()
+
 		}
 		  if (self.card1id == 2 ) {
 			  var currentWord = "chipmunk"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
 		   if (self.card1id == 3 ) {
 			  var currentWord = "deer"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		 
+
 		  if (self.card1id == 4 ) {
 			  var currentWord = "eagle"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		 
+
 		  if (self.card1id == 5 ) {
 			  var currentWord = "mouse"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		 
+
 		  if (self.card1id == 6 ) {
 			  var currentWord = "squirrel"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		 
+
 		  if (self.card1id == 7 ) {
 			  var currentWord = "fox"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		 
+
 		  if (self.card1id == 8 ) {
 			  var currentWord = "mole"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		 
+
 		  if (self.card1id == 9 ) {
 			  var currentWord = "owl"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		 
+
 		  if (self.card1id == 10 ) {
 			  var currentWord = "porcupine"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		   
+
 		    if (self.card1id == 11 ) {
 			  var currentWord = "rabbit"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		
+
 		 if (self.card1id == 12 ) {
 			  var currentWord = "raccoon"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		 
+
 		  if (self.card1id == 13 ) {
 			  var currentWord = "skunk"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		 
+
 		  if (self.card1id == 14 ) {
 			  var currentWord = "squirrel"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		 
+
 		  if (self.card1id == 15 ) {
 			  var currentWord = "wolf"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		 
+
 		  if (self.card1id == 16 ) {
 			  var currentWord = "woodpecker"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-        } 
+        }
 		else if( self.card1flipped === true && self.card2flipped === false ) {
           this.classList.add("flipped");
           self.card2 = this;
@@ -513,113 +531,113 @@ audio.play();
 		 if (self.card2id == 1) {
 			var currentWord = "bear"
 		 localStorage.setItem('currentWord',currentWord);
-		showVideos ()
-		  
+		showWord ()
+
 		}
 		  if (self.card2id == 2 ) {
 			  var currentWord = "chipmunk"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
 		   if (self.card2id == 3 ) {
 			  var currentWord = "deer"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		 
+
 		  if (self.card2id == 4 ) {
 			  var currentWord = "eagle"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		 
+
 		  if (self.card2id == 5 ) {
 			  var currentWord = "mouse"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		 
+
 		  if (self.card2id == 6 ) {
 			  var currentWord = "squirrel"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		 
+
 		  if (self.card2id == 7 ) {
 			  var currentWord = "fox"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		 
+
 		  if (self.card2id == 8 ) {
 			  var currentWord = "mole"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		 
+
 		  if (self.card2id == 9 ) {
 			  var currentWord = "owl"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		 
+
 		  if (self.card2id == 10 ) {
 			  var currentWord = "porcupine"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		   
+
 		    if (self.card2id == 11 ) {
 			  var currentWord = "rabbit"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		
+
 		 if (self.card2id == 12 ) {
 			  var currentWord = "raccoon"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		 
+
 		  if (self.card2id == 13 ) {
 			  var currentWord = "skunk"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		 
+
 		  if (self.card2id == 14 ) {
 			  var currentWord = "squirrel"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		 
+
 		  if (self.card2id == 15 ) {
 			  var currentWord = "wolf"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		 
+
 		  if (self.card2id == 16 ) {
 			  var currentWord = "woodpecker"
 		 localStorage.setItem('currentWord',currentWord);
-		 showVideos ()
-		  
+		 showWord ()
+
 		 }
-		   
+
           if ( self.card1id == self.card2id ) {
             self._gameCardsMatch();
 			setTimeout(cardMatch, 500)
@@ -755,7 +773,7 @@ audio.play();
       this.game.appendChild(this.gameMessages);
       document.getElementById("mg__onend--restart").addEventListener( "click", function(e) {
         self.resetGame();
-		
+
       });
     } else {
       // run callback
