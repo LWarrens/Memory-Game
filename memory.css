@@ -552,6 +552,14 @@ img {
           transform: rotateY(-180deg);
 }
 
+.mg__tile--inside_text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: large
+}
+
 /* some transforms for flipped cards */
 .mg__tile--inner.flipped .mg__tile--outside {
   -webkit-transform: rotateY(-180deg);
