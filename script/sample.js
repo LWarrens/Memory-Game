@@ -10,9 +10,23 @@
  * Copyright 2014, Call Me Nick
  * http://callmenick.com
  */
-function cardTurn() {
+ function removeWord()
+     {
+ var currentWord = ""
+document.getElementById("word").innerHTML = currentWord;
+     }
+
+ function showWord()
+     {
+ var currentWord = localStorage.getItem('currentWord');
+document.getElementById("word").innerHTML = currentWord;
+     }
+
+function cardTurn(cardname) {
     var audio = new Audio('../sound/chime-01.mp3');
-    audio.play();
+
+    responsiveVoice.speak(cardname);
+    console.log("play: " + cardname)
 
 };
 
@@ -317,7 +331,7 @@ function endRound() {
                     self.card1 = this;
                     self.card1txt = this.getAttribute("txt");
                     self.card1flipped = true;
-                    setTimeout(cardTurn, 2);
+                    setTimeout(cardTurn.bind(null, self.card1txt), 2);
 
                     localStorage.setItem('currentWord', self.card1txt);
                     showWord()
@@ -327,7 +341,7 @@ function endRound() {
                     self.card2 = this;
                     self.card2txt = this.getAttribute("txt");
                     self.card2flipped = true;
-                    setTimeout(cardTurn, 2);
+                    setTimeout(cardTurn.bind(null, self.card2txt), 2);
                     //localStorage.setItem('self.card2txt', self.card2txt);
 
                     localStorage.setItem('currentWord', self.card2txt);
