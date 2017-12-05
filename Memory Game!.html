@@ -3,11 +3,10 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- js -->
     <script language="JavaScript" type="text/javascript" src="script/jquery.js"></script>
     <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
-    <script src="script/sample.js"></script>
 
     <!-- meta -->
 
@@ -28,7 +27,6 @@
 </head>
 
 <body>
-
     <div class="wrapper">
 
         <div class="header clearfix">
@@ -52,44 +50,23 @@
     </div>
     <!-- /.content -->
 
-    <!-- start memory! -->
-    <script>
-        (function() {
-            var myMem = new Memory({
-                wrapperID: "my-memory-game",
-                cards: [
-                    "duck",
-                    "goose",
-                    "penguin",
-                    "parrot",
-                    "pigeon",
-                    "partridge",
-                    "peacock",
-                    "puffin",
-                    "pelican",
-                    "parakeet",
-                    "pheasant",
-                    "petrel",
-                    "pipit",
-                    "piha",
-                    "pochard",
-                    "phoebe"
-                ],
-                onGameStart: function() {
-                    return false;
-                },
-                onGameEnd: function() {
-                    return false;
-                }
-            });
-        })();
-    </script>
+
 
     <div id="fb-root"></div>
-
+    <div align="center">
+          <input type="file" onchange='teststuff(this)' />
+          <div id="dropZone" style="width: 500px; height: 100px; background-color: #39bbed">
+            <font size=26>drag a list of words here! </font>
+          </div>
+    </div>
     <div align="center"><img src="./credit memory.png" width="400" height="100">
     </div>
 
 </body>
-
+<script src="script/sample.js"></script>
+<!-- start memory! -->
+<script>
+    (function() {
+    })();
+</script>
 </html>

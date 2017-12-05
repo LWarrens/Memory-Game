@@ -1,0 +1,8 @@
+cheese
+bread
+eggs
+ham
+pancake
+waffle
+milk
+cereal

@@ -10,6 +10,69 @@
  * Copyright 2014, Call Me Nick
  * http://callmenick.com
  */
+ var dropZone = document.getElementById('dropZone');
+ console.log("dropzone below")
+ console.log(dropZone)
+ // Optional.   Show the copy icon when dragging over.  Seems to only work for chrome.
+ dropZone.addEventListener('dragover', function(e) {
+     e.stopPropagation();
+     e.preventDefault();
+     e.dataTransfer.dropEffect = 'copy';
+ });
+function teststuff(filePath) {
+    var reader = new FileReader();
+    var output = "";
+        if(filePath.files && filePath.files[0]) {
+            reader.onload = function (e) {
+                output = e.target.result;
+                lines = output.split("\n").filter(String);
+                console.log(lines)
+                 myMem.options.cards = lines;
+                 myMem._setupGame()
+            };
+            reader.readAsText(filePath.files[0]);
+        }
+
+}
+ // Get file data on drop
+ dropZone.addEventListener('drop', function(e) {
+     e.stopPropagation();
+     e.preventDefault();
+     var files = e.dataTransfer.files; // Array of all files
+
+     for (var i=0, file; file=files[i]; i++) {
+
+        console.log(file)
+         if (file.type.match(/text.*/)) {
+             var reader = new FileReader();
+
+                     console.log("yes "+file)
+             reader.onload = function(e2) {
+                 // finished reading file data.
+                // var img = document.createElement('img');
+                 //img.src= e2.target.result;
+                 //document.body.appendChild(img);
+
+                 var contents = e2.target.result;
+                  var lines = contents.split('\n').filter(String);
+                for (var i=0; i < lines.length; ++i) {
+
+                  console.log("test" + lines[i]);
+                }
+                 myMem.options.cards = lines;
+                 myMem._setupGame()
+
+             }
+
+             reader.readAsText(file); // start reading the file data.
+         }
+     //.innerHTML="newtext";
+     }
+ });
+
+
+
+
  function removeWord()
      {
  var currentWord = ""
@@ -96,9 +159,11 @@ function endRound() {
         wrapperID: "container",
         cards: [],
         onGameStart: function() {
+            dropZone.style.display="block";
             return false;
         },
         onGameEnd: function() {
+            dropZone.style.display="none";
             return false;
         }
     }
@@ -320,7 +385,6 @@ function endRound() {
      * _gameCardsMismatch functions perform two separate sets of functions, and are
      * thus separated below.
      */
-
     Memory.prototype._gamePlayEvents = function(tile) {
         var self = this;
         tile.addEventListener("click", function(e) {
@@ -511,3 +575,31 @@ function endRound() {
     window.Memory = Memory;
 
 })(window);
+
+var myMem =  new Memory({
+     wrapperID: "my-memory-game",
+     cards: [
+         "duck",
+         "goose",
+         "penguin",
+         "parrot",
+         "pigeon",
+         "partridge",
+         "peacock",
+         "puffin",
+         "pelican",
+         "parakeet",
+         "pheasant",
+         "petrel",
+         "pipit",
+         "piha",
+         "pochard",
+         "phoebe"
+     ],
+     onGameStart: function() {
+         return false;
+     },
+     onGameEnd: function() {
+         return false;
+     }
+ });
