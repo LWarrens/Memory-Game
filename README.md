@@ -1,4 +1,4 @@
-"# Memory-Game" 
+# Memory-Game
 
 Memory game for Ubiquitous Computing Course.
 
